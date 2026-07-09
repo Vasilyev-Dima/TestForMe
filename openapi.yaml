@@ -1,0 +1,39 @@
+openapi: 3.0.3
+info:
+  title: API Партнерских Магазинов
+  version: 1.0.0
+
+paths:
+  /partner-stores:
+    get:
+      summary: Получить список магазинов партнеров
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stores:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        name:
+                          type: string
+                          example: "METRO"
+                        delivery_info:
+                          type: string
+                          nullable: true
+                          example: "Ближайшая доставка сегодня 21:00-23:00"
+                        logo_url:
+                          type: string
+                          example: "https://cdn.petrushka.ru/partners/metro.png"
+                        external_url:
+                          type: string
+                          description: Ссылка для перехода по клику
+                          example: "https://www.metro.ru"
